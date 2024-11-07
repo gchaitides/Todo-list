@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Add this in the HTML <head> to link the Roboto font -->
+    <link
+         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo-title">
+        <span class="logo-icon">✔</span>
+        <!-- Optional icon -->
+        <span class="logo-text">My To-Do List</span>
+      </div>
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Add New Task"
+        autocomplete="off"
+      />
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search tasks...">
+    </div>     
+      <p id="feedbackMessage" class="message" style="color: red; font-size: 0.9em;"></p>
+      <p id="successMessage" class="message success-message">Task added successfully!</p>
+      <p id="deleteMessage" class="message delete-message">Task removed successfully!</p>      
+      <button id="addTaskButton">Add Task</button>
+      <div id="taskContainer">
+        <h2>Open Taskse</h2>
+        <ul id="openTaskList"></ul>
+        <h2>Completed Tasks</h2>
+        <ul id="completedTaskList"></ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,384 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    max-width: 700px; /* Increase width for better readability */
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 800px; /* Fixed height to prevent movement */
+    overflow: hidden; /* Prevent overflow beyond container */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Header styling */
+h1 {
+    color: #333;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.3rem; /* Slightly larger font size */
+    color: #333; /* Darker color for readability */
+    font-weight: 600; /* Semi-bold for emphasis */
+    border-bottom: 2px solid #ddd; /* Subtle underline */
+    padding-bottom: 5px; /* Space between text and underline */
+    margin-top: 20px; /* Space above each section */
+    margin-bottom: 10px; /* Space below the heading */
+    text-align: left; /* Align to the left for consistency */
+}
+/* Input and button styling */
+#taskInput {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#addTaskButton {
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for Add Task button */
+#addTaskButton:hover {
+    background-color: #0056b3; /* Slightly darker blue */
+}
+
+/* Task list styling */
+#taskList {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+    overflow-y: auto; /* Enable vertical scroll only when needed */
+    overflow-x: hidden; /* Hide horizontal scroll */
+    max-height: 800px; /* Restrict task list height */
+    padding-right: 10px; /* Prevent content cut-off */
+    scrollbar-width: thin; /* Firefox: Make scrollbar thin */
+    scrollbar-color: #ccc transparent; /* Firefox: Custom scrollbar color */
+}
+
+/* For WebKit Browsers (Chrome, Edge, Safari) */
+#taskList::-webkit-scrollbar {
+    width: 4px; /* Set width of the scrollbar */
+}
+
+#taskList::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color of the scrollbar */
+    border-radius: 5px; /* Rounded edges for a softer look */
+}
+
+#taskList::-webkit-scrollbar-track {
+    background: transparent; /* Background color of the scrollbar track */
+}
+
+/* Task item styling */
+#taskList li {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+#taskList li:hover {
+    transform: scale(1.02);
+}
+
+/* Checkbox styling */
+.complete-checkbox {
+    margin-right: 12px; /* Space between checkbox and text */
+    accent-color: #007bff; /* Change to match primary color */
+    transform: scale(1.2); /* Make it slightly larger */
+}
+
+/* Task text styling with word wrap */
+.task-text {
+    flex: 1;
+    overflow-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 70px);
+    margin-right: 10px;
+    text-align: left; /* Align text to the left */
+}
+
+/* Completed task text */
+#taskList li.completed .task-text {
+    background-color: #e0e0e0;
+    color: #888;
+    text-decoration: line-through;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+#completedTaskList li .task-text {
+    color: #888;
+    text-decoration: line-through;
+}
+
+/* Delete button */
+.delete-btn {
+    flex-shrink: 0; /* Prevents the delete button from shrinking */
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #e63946; /* Darker shade of red */
+}
+
+/* Logo title styling */
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+/* Logo icon styling (optional) */
+.logo-icon {
+    font-size: 1.2em;
+    color: #28a745; /* Icon color (green) */
+    margin-right: 10px;
+}
+
+/* Logo text styling */
+.logo-text {
+    font-family: 'Arial Black', sans-serif;
+    color: #333; /* Text color */
+    text-transform: uppercase; /* Capitalize letters */
+    letter-spacing: 1px; /* Spacing for logo effect */
+}
+
+/* Section headings */
+h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Remove border-top from completed task list */
+#completedTaskList {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 10px;
+}
+
+/* Add a single border-bottom to the Open Tasks section */
+#openTaskList {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Task item styling */
+#openTaskList li, #completedTaskList li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+    word-wrap: break-word; /* Wrap long text */
+}
+
+#openTaskList li {
+    background-color: #f8f9fa; /* Light gray for open tasks */
+}
+
+#completedTaskList li {
+    background-color: #e9ecef; /* Even lighter gray for completed tasks */
+    color: #6c757d; /* Dark gray text for completed tasks */
+}
+
+/* Task container */
+#taskContainer {
+    max-height: 600px;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+/* Webkit scrollbar styling for Chrome, Safari, Edge */
+#taskContainer::-webkit-scrollbar {
+    width: 6px; /* Set width of the scrollbar */
+}
+
+#taskContainer::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color of the scrollbar */
+    border-radius: 5px; /* Rounded edges for a softer look */
+}
+
+#taskContainer::-webkit-scrollbar-track {
+    background: transparent; /* Background color of the scrollbar track */
+}
+
+
+/* Edit button styling */
+.edit-btn {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 8px;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #d4a10b; /* Darker shade of yellow */
+}
+
+/* Edit input field styling */
+.edit-input {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Fade-in animation */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10%, 90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+li {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.feedback-message {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.feedback-message.show {
+    opacity: 1;
+}
+
+@media (max-width: 500px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #addTaskButton, #taskInput {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.8em;
+    }
+}
+
+
+.message {
+    display: none;
+    opacity: 0;
+}
+
+.message.show {
+    display: block;
+    animation: fadeInOut 3s forwards;
+}
+
+/* Specific styles for add and delete messages */
+.success-message {
+    color: green;
+}
+
+.delete-message {
+    color: red;
+}
+
+/* Wrapper styling */
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Input styling */
+#searchInput { 
+    padding: 12px 10px;
+    padding-left: 35px; /* Space for the icon */
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f0f4f9;
+}
+
+/* Icon styling */
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 34%; /* Adjusted to improve alignment */
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #007bff;
+    pointer-events: none;
+}
+
